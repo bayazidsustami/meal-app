@@ -45,20 +45,4 @@ class MainFragment: BaseFragment<FragmentMainBinding>(FragmentMainBinding::infla
             }
         })
     }
-
-    private fun stateListCategory(){
-        viewModels.list.observe(this, { data ->
-            when(data.status){
-                State.SUCCESS -> {
-                    Log.d(MainViewModel::class.java.simpleName, " category -->data = ${data.data}")
-                }
-                State.LOADING -> {
-                    Log.d(MainViewModel::class.java.simpleName, "category --> onLoading")
-                }
-                State.FAILED -> {
-                    Log.d(MainViewModel::class.java.simpleName, "category --> onError")
-                }
-            }
-        })
-    }
 }
