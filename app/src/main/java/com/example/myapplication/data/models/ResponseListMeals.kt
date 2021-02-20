@@ -2,7 +2,7 @@ package com.example.myapplication.data.models
 
 import com.squareup.moshi.Json
 
-data class ResponseCategoryMeals(
+data class ResponseListMeals(
 
 	@Json(name="meals")
 	val meals: List<MealsCategoryItem?>? = null

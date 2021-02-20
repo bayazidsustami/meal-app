@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.myapplication.data.models.ResponseCategoryMeals
+import com.example.myapplication.data.models.ResponseListMeals
 import com.example.myapplication.data.models.ResponseMealsCategory
 import com.example.myapplication.data.repositories.categories.CategoryRepository
 import com.example.myapplication.utils.Resource
@@ -17,8 +17,8 @@ class MainViewModel(private val repository: CategoryRepository): ViewModel() {
     private val _state = MutableLiveData<Resource<ResponseMealsCategory>>()
     val states: LiveData<Resource<ResponseMealsCategory>> get() = _state
 
-    private val _categories = MutableLiveData<Resource<ResponseCategoryMeals>>()
-    val category: LiveData<Resource<ResponseCategoryMeals>> get() = _categories
+    private val _categories = MutableLiveData<Resource<ResponseListMeals>>()
+    val list: LiveData<Resource<ResponseListMeals>> get() = _categories
 
     fun loadAllCategories(){
         viewModelScope.launch {

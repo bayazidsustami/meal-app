@@ -23,11 +23,10 @@ class MainFragment: BaseFragment<FragmentMainBinding>(FragmentMainBinding::infla
         }
 
         binds?.btnTestcategory?.setOnClickListener {
-            viewModels.loadListCategoryMeals("list")
+            viewModels.loadAllCategories()
         }
 
         stateCategory()
-        stateListCategory()
 
     }
 
@@ -48,7 +47,7 @@ class MainFragment: BaseFragment<FragmentMainBinding>(FragmentMainBinding::infla
     }
 
     private fun stateListCategory(){
-        viewModels.category.observe(this, {data ->
+        viewModels.list.observe(this, { data ->
             when(data.status){
                 State.SUCCESS -> {
                     Log.d(MainViewModel::class.java.simpleName, " category -->data = ${data.data}")

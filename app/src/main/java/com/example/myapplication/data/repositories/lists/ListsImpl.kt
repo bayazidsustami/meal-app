@@ -1,20 +1,18 @@
-package com.example.myapplication.data.repositories.categories
+package com.example.myapplication.data.repositories.lists
 
 import com.example.myapplication.apiConfig.ApiService
 import com.example.myapplication.data.models.ResponseListMeals
-import com.example.myapplication.data.models.ResponseMealsCategory
 import com.example.myapplication.data.repositories.ApiHelper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
-class CategoriesImpl(private val apiService: ApiService): ApiHelper.Categories {
-    override suspend fun getAllCategories(): Flow<ResponseMealsCategory> {
+class ListsImpl(private val apiService: ApiService): ApiHelper.Lists {
+    override suspend fun getList(params: Map<String, String>): Flow<ResponseListMeals> {
         return flow {
-            val categories = apiService.getListMealCategories()
-            emit(categories)
+            val listed = apiService.getList(params)
+            emit(listed)
         }.flowOn(Dispatchers.IO)
     }
-
 }
