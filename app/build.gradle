@@ -1,0 +1,92 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.example.myapplication"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        buildConfigField "String", "BASE_URL", "\"https://www.themealdb.com/api/json/v1/1/\""
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    viewBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    //Kotlin coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
+
+    implementation "androidx.core:core-ktx:$core_ktx_version"
+
+    implementation "androidx.appcompat:appcompat:$app_compact_version"
+    implementation "com.google.android.material:material:$material_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_version"
+    implementation "androidx.cardview:cardview:$cardview_version"
+    implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    testImplementation "junit:junit:$junit_version"
+    androidTestImplementation "androidx.test.ext:junit:$test_junit_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+
+
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$arch_component_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$arch_component_version"
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
+
+    //retrofit for requestServer
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    //gson converter
+    //implementation "com.squareup.retrofit2:converter-gson:$gson_version"
+    //moshi converter
+    implementation "com.squareup.retrofit2:converter-moshi:$moshi_version"
+
+    //okhttp for logging
+    implementation("com.squareup.okhttp3:okhttp:$okhttp_version")
+    implementation("com.squareup.okhttp3:logging-interceptor:$okhttp_version")
+
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    kapt "com.github.bumptech.glide:compiler:$glide_version"
+    implementation ("com.github.bumptech.glide:okhttp3-integration:$glide_version"){
+        exclude group: 'glide-parent'
+    }
+
+    //testImplementation "io.mockk:mockk:1.10.5"
+    testImplementation 'android.arch.core:core-testing:1.1.1'
+    testImplementation 'org.mockito:mockito-core:3.1.0'
+
+}
