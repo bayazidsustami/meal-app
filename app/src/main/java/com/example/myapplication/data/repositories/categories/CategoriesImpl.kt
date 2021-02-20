@@ -1,7 +1,6 @@
 package com.example.myapplication.data.repositories.categories
 
 import com.example.myapplication.apiConfig.ApiService
-import com.example.myapplication.data.models.ResponseListMeals
 import com.example.myapplication.data.models.ResponseMealsCategory
 import com.example.myapplication.data.repositories.ApiHelper
 import kotlinx.coroutines.Dispatchers

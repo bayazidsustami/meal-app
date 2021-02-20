@@ -1,8 +1,8 @@
 package com.example.myapplication.apiConfig
 
 import com.example.myapplication.data.models.ResponseByFirstLetter
-import com.example.myapplication.data.models.ResponseListMeals
 import com.example.myapplication.data.models.ResponseFilters
+import com.example.myapplication.data.models.ResponseListMeals
 import com.example.myapplication.data.models.ResponseMealsCategory
 import retrofit2.http.GET
 import retrofit2.http.Query

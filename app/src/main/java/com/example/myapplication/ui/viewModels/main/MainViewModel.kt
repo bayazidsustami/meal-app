@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.myapplication.data.models.ResponseListMeals
 import com.example.myapplication.data.models.ResponseMealsCategory
 import com.example.myapplication.data.repositories.categories.CategoryRepository
 import com.example.myapplication.utils.Resource
