@@ -11,14 +11,17 @@ import retrofit2.http.QueryMap
 interface ApiService {
 
     @GET("search.php")
-    suspend fun getListMealByFirstLetter(
-        @Query("f") firstLetter: String
+    suspend fun getSearch(
+        @QueryMap paramsMap: Map<String, String>
     ): ResponseByFirstLetter
 
     @GET("lookup.php")
     suspend fun getMealDetailById(
         @Query("i") idMeal: String
     ): ResponseByFirstLetter
+
+    @GET("random.php")
+    suspend fun getRandomMeals(): ResponseByFirstLetter
 
     @GET("categories.php")
     suspend fun getListMealCategories(): ResponseMealsCategory
