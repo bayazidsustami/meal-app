@@ -35,6 +35,5 @@ class MainViewModelTest {
 
     @Test
     fun getCategoryTest(){
-
     }
 }
