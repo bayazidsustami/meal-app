@@ -104,7 +104,7 @@ class MainViewModelTest {
 
             //when
             repository.stub {
-                onBlocking {getAllCategories()} doAnswer {throw IOException()}
+                onBlocking {getAllCategories()} doAnswer {flow.catch { Throwable() }}
             }
 
             val viewModel = MainViewModel(repository)

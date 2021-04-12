@@ -104,7 +104,7 @@ class FilterViewModelTest{
 
             //when
             repository.stub {
-                onBlocking { getFiltersBy(anyMap()) } doAnswer {throw IOException()}
+                onBlocking { getFiltersBy(anyMap()) } doAnswer {flow.catch { Throwable() }}
             }
 
             val viewModel = FilterViewModel(repository)
