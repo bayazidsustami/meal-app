@@ -10,6 +10,7 @@ import com.example.myapplication.utils.Resource
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.*
 import okio.IOException
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -66,6 +67,7 @@ class MainViewModelTest {
             verify(resultObserver).onChanged(
                 Resource.onLoading(null)
             )
+            assertEquals(viewModel.states.value, Resource.onLoading(null))
             viewModel.states.removeObserver(resultObserver)
         }
     }
@@ -90,6 +92,7 @@ class MainViewModelTest {
             verify(resultObserver).onChanged(
                 Resource.onSuccess(responseMealsCategory)
             )
+            assertEquals(viewModel.states.value, Resource.onSuccess(responseMealsCategory))
             viewModel.states.removeObserver(resultObserver)
         }
     }
@@ -119,6 +122,7 @@ class MainViewModelTest {
                 verify(flow).catch { ex->
                     Resource.onFailed(data = null, ex.message)
                 }
+                assertEquals(viewModel.states.value, Resource.onFailed(null, e.message))
             }
             viewModel.states.removeObserver(resultObserver)
         }
