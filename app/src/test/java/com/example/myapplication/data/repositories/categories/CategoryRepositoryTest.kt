@@ -7,11 +7,8 @@ import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
-import org.mockito.Mockito
 import org.mockito.Mockito.*
 import org.mockito.MockitoAnnotations
-import retrofit2.HttpException
-import kotlin.Exception
 
 class CategoryRepositoryTest{
     @Mock
@@ -26,7 +23,7 @@ class CategoryRepositoryTest{
 
     @Before
     fun init(){
-        MockitoAnnotations.initMocks(this)
+        MockitoAnnotations.openMocks(this)
         repository = CategoryRepository.instance.apply {
             init(CategoriesImpl(apiService!!))
         }
